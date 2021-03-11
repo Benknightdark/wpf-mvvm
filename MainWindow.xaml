@@ -5,10 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        
+        xmlns:vm="clr-namespace:WpfApp1.ViewModels"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <TextBox x:Name="TheTextBox" />
-        <TextBlock x:Name="TheTextBlock" />
-        <Button x:Name="TheTextButton" />
-    </StackPanel>
+    <Window.DataContext>
+        <vm:ProductViewModel></vm:ProductViewModel>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,439">
+        <Grid x:Name="Grid1" HorizontalAlignment="Left" Height="108" Margin="56,69,0,-148" VerticalAlignment="Top" Width="641">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="產品" Grid.Row="0" Grid.Column="0" TextAlignment="Center" FontSize="24" Background="Aqua"></TextBlock>
+            <TextBlock Text="數量" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="24" Background="Aqua"></TextBlock>
+            <TextBlock Text="單價" Grid.Row="0" Grid.Column="2" TextAlignment="Center" FontSize="24" Background="Aqua"></TextBlock>
+            <TextBlock Text="小計" Grid.Row="0" Grid.Column="3" TextAlignment="Center" FontSize="24" Background="Aqua"></TextBlock>
+            <TextBox Text="" Grid.Row="1" Grid.Column="0" FontSize="20"></TextBox>
+            <TextBox Text="" Grid.Row="1" Grid.Column="1" TextAlignment="Right" FontSize="20"></TextBox>
+            <TextBox Text="" Grid.Row="1" Grid.Column="2" TextAlignment="Right" FontSize="20"></TextBox>
+            <TextBox Text="" Grid.Row="1" Grid.Column="3" TextAlignment="Right" FontSize="20"></TextBox>
+        </Grid>
+        <Button x:Name="button" Content="計算" HorizontalAlignment="Left" Height="30" Margin="702,93,0,-123" VerticalAlignment="Top" Width="75" Command="{Binding UpdateTotal}"/>
+    </Grid>
 </Window>
